@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+
+<form name="login_form" action="https://onliner.by" onsubmit="return submitForm();">
+    <h2>Login:</h2>
+    <input type="text" name="login" required>
+    <h2>Password:</h2>
+    <input type="password" name="password" required>
+    <h2>Repeat Password:</h2>
+    <input type="password" name="password2" required>
+
+
+    <br>
+    <input type="submit" name="submitName">
+</form>
+
+<script>
+
+    function submitForm(){
+        if (registerForm()){
+            document.login_form.submitName.disabled = true;
+            document.login_form.submit();
+
+        } else {
+            return false;
+        }
+    }
+
+
+    function registerForm(){
+        let login = document.forms['login_form']['login'].value;
+        let password = document.forms['login_form']['password'].value;
+        let passwordRepeat = document.forms['login_form']['password2'].value;
+        if(login == "" || password == "") {
+            console.log("Password or login is empty!");
+            alert("Password or login is empty!");
+            return false;
+        } else {
+            if (login.length < 6){
+                console.log("Login is too short!");
+                alert("Login is too short!");
+                return false;
+            } else if (password.length < 8){
+                console.log("Password is too short!");
+                alert("Password is too short!");
+                return false;
+            } else if (password != passwordRepeat) {
+                console.log("Passwords is mismatch!");
+                alert("Passwords is mismatch!");
+                return false;
+            }
+            return true;
+        }
+
+    }
+</script>
+
+</body>
+</html>
