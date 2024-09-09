@@ -28,7 +28,7 @@ public abstract class AbstractJpaDAO<PK extends Serializable, T> implements Auto
         return jpaService.findAll(clazz);
     }
 
-    public T find(String conditions){
+    public T findFirst(String conditions){
         List<T> result = jpaService.findAll(clazz, conditions);
         if(CollectionUtils.isEmpty(result)){
             return null;

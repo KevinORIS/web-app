@@ -48,8 +48,12 @@ public class JPAService implements AutoCloseable {
     }
 
     public static JPAService getInstance() {
-        if (instance == null)
-            throw new JpaException("Initialize JPAService first.");
+        synchronized (JPAService.class) {
+            if (instance == null)
+                instance = new JPAService();
+        }
+//        if (instance == null)
+//            throw new JpaException("Initialize JPAService first.");
         return instance;
     }
 

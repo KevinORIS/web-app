@@ -1,6 +1,7 @@
 package com.example.demowebapp;
 
 import com.example.demowebapp.dao.UserDAOImpl;
+import com.example.demowebapp.dao.UsersDAO;
 import com.example.demowebapp.model.User;
 import com.example.demowebapp.utils.EncryptDecryptUtils;
 import com.example.demowebapp.utils.ServletUtils;
@@ -13,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "ActivateServlet", value = "/activate")
 public class ActivateServlet extends HttpServlet {
 
-    private UserDAOImpl userDAO = new UserDAOImpl();
+    private UsersDAO userDAO = new UsersDAO();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +30,7 @@ public class ActivateServlet extends HttpServlet {
             User user = userDAO.findUserByEmail(email);
             if(user != null){
                 // User found & should be activated
-                boolean isActivated = userDAO.activate(user);
+                boolean isActivated = userDAO.active(email);
                 if(isActivated){
                     request.setAttribute("msg", "WELCOME. YOU ARE ACTIVATED");
                     ServletUtils.forwardJsp("blog", request, response);

@@ -1,18 +1,19 @@
 package com.example.demowebapp.filters;
 
-/*import com.example.demowebapp.model.Role;
+import com.example.demowebapp.model.Role;
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @WebFilter(filterName = "AuthFilter", urlPatterns = {"/*"})
 public class AuthFilter implements Filter {
-    private Map<Role, List<String>> authMap;
+    private Map<Role, List<String>> authMap = new HashMap<>();
     private List<String> whiteList;
 
     public void init(FilterConfig config) throws ServletException {
@@ -24,7 +25,7 @@ public class AuthFilter implements Filter {
         authMap.put(manager, Arrays.asList("/show-cars"));
         authMap.put(gu, Arrays.asList("/blog"));
 
-        whiteList = Arrays.asList("/login", "/reg", "/basic-msg");
+        whiteList = Arrays.asList("/login", "/reg-user", "/basic-msg");
         //...
     }
 
@@ -44,4 +45,4 @@ public class AuthFilter implements Filter {
 
         chain.doFilter(request,response);
     }
-}*/
+}

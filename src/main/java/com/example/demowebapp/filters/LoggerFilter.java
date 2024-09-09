@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.*;
 
-/*@WebFilter(filterName = "LoggerFilter", urlPatterns = {"/*"})
+@WebFilter(filterName = "LoggerFilter", urlPatterns = {"/*"})
 public class LoggerFilter implements Filter {
 
 
@@ -26,4 +26,4 @@ public class LoggerFilter implements Filter {
         System.out.println(new Date() + "-> requested :" + httpServletRequest.getServletPath() + "/" + httpServletRequest.getRequestedSessionId());
         chain.doFilter(request, response);
     }
-}*/
+}

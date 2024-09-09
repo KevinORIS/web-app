@@ -4,6 +4,8 @@ package com.example.demowebapp.utils;
 //import com.example.demowebapp.entity.Cart;
 import com.example.demowebapp.entity.Employee;
 //import com.example.demowebapp.entity.Item;
+import com.example.demowebapp.model.Role;
+import com.example.demowebapp.model.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -38,6 +40,8 @@ public class HibernateAnnotationUtil {
                 .addAnnotatedClass(Employee.class)
 //                .addAnnotatedClass(Cart.class)
 //                .addAnnotatedClass(Item.class)
+                .addAnnotatedClass(User.class)
+                .addAnnotatedClass(Role.class)
                 .buildMetadata();
 
         //EntityManagerFactory factory = EntityManagerFactory
@@ -47,9 +51,9 @@ public class HibernateAnnotationUtil {
 
     private static Map<String, Object> dbSettings() {
         Map<String, Object> dbSettings = new HashMap<>();
-        dbSettings.put(Environment.URL, "jdbc:mysql://localhost:3308/j1023_db");
+        dbSettings.put(Environment.URL, "jdbc:mysql://localhost:3306/j1023_db");
         dbSettings.put(Environment.USER, "root");
-        dbSettings.put(Environment.PASS, "");
+        dbSettings.put(Environment.PASS, "mysql123");
         dbSettings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
         dbSettings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
         dbSettings.put(Environment.SHOW_SQL, "true");
