@@ -37,6 +37,7 @@ public class ActivateServlet extends HttpServlet {
                     return;
                 }
             }
+
         }
     }
 
