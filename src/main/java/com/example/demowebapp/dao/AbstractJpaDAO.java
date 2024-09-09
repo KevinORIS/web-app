@@ -7,6 +7,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import jakarta.persistence.EntityManager;
+import org.apache.commons.collections4.CollectionUtils;
 
 public abstract class AbstractJpaDAO<PK extends Serializable, T> implements AutoCloseable {
 
@@ -25,6 +26,14 @@ public abstract class AbstractJpaDAO<PK extends Serializable, T> implements Auto
 
     public List<T> findAll() {
         return jpaService.findAll(clazz);
+    }
+
+    public T find(String conditions){
+        List<T> result = jpaService.findAll(clazz, conditions);
+        if(CollectionUtils.isEmpty(result)){
+            return null;
+        }
+        return result.get(0);
     }
 
     public List<T> findAll(String condition) {
