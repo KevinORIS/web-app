@@ -1,12 +1,9 @@
 package com.example.demowebapp.utils;
 
 
-//import com.example.demowebapp.entity.Cart;
-import com.example.demowebapp.entity.Employee;
-//import com.example.demowebapp.entity.Item;
-import com.example.demowebapp.model.Office;
-import com.example.demowebapp.model.Role;
-import com.example.demowebapp.model.User;
+
+import com.example.demowebapp.entity.*;
+import com.example.demowebapp.model.*;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -44,6 +41,8 @@ public class HibernateAnnotationUtil {
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Role.class)
                 .addAnnotatedClass(Office.class)
+                .addAnnotatedClass(Product.class)
+                .addAnnotatedClass(ProductLine.class)
                 .buildMetadata();
 
         //EntityManagerFactory factory = EntityManagerFactory
