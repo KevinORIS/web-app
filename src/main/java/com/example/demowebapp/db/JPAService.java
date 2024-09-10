@@ -108,7 +108,6 @@ public class JPAService implements AutoCloseable {
         return run(entityManager -> {
             return entityManager.createQuery(format(FROM_FORMAT, entityClass.getSimpleName()), entityClass).getResultList();
         });
-
     }
 
     public <T> List<T> findAll(Class<T> entityClass, String condition) {

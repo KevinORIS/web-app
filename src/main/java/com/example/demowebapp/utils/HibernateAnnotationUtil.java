@@ -4,6 +4,7 @@ package com.example.demowebapp.utils;
 //import com.example.demowebapp.entity.Cart;
 import com.example.demowebapp.entity.Employee;
 //import com.example.demowebapp.entity.Item;
+import com.example.demowebapp.model.Office;
 import com.example.demowebapp.model.Role;
 import com.example.demowebapp.model.User;
 import org.hibernate.SessionFactory;
@@ -42,6 +43,7 @@ public class HibernateAnnotationUtil {
 //                .addAnnotatedClass(Item.class)
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Role.class)
+                .addAnnotatedClass(Office.class)
                 .buildMetadata();
 
         //EntityManagerFactory factory = EntityManagerFactory
