@@ -2,8 +2,8 @@ package com.example.demowebapp.utils;
 
 
 
-import com.example.demowebapp.entity.*;
 import com.example.demowebapp.model.*;
+import com.example.demowebapp.model.Employee;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
